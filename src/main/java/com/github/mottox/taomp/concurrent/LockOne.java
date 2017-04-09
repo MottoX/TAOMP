@@ -1,6 +1,6 @@
 package com.github.mottox.taomp.concurrent;
 
-import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.github.mottox.taomp.common.ThreadID;
 import com.github.mottox.taomp.locks.Lock;
@@ -12,27 +12,27 @@ import com.github.mottox.taomp.locks.Lock;
  */
 public class LockOne implements Lock {
 
-    private AtomicReferenceArray<Boolean> flag = new AtomicReferenceArray<>(2);
+    private AtomicBoolean[] flag = new AtomicBoolean[2];
 
     public LockOne() {
-        flag.set(0, false);
-        flag.set(1, false);
+        flag[0] = new AtomicBoolean(false);
+        flag[1] = new AtomicBoolean(false);
     }
 
     @Override
     public void lock() {
         int i = ThreadID.get();
         int j = 1 - i;
-        flag.set(i, true);
+        flag[i].set(true);
 
-        // 当两个线程都执行完上面的置flag操作时，等待另一个线unlock置flag为false时，会发生死锁。
-        while (flag.get(j)) {
+        // 当两个线程都执行完上面的置flag操作时，等待另一个线程unlock置flag为false时，会发生死锁。
+        while (flag[j].get()) {
         }
     }
 
     @Override
     public void unlock() {
         int i = ThreadID.get();
-        flag.set(i, false);
+        flag[i].set(false);
     }
 }

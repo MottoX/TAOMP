@@ -1,6 +1,6 @@
 package com.github.mottox.taomp.concurrent;
 
-import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.github.mottox.taomp.common.ThreadID;
 import com.github.mottox.taomp.locks.Lock;
@@ -11,13 +11,13 @@ import com.github.mottox.taomp.locks.Lock;
  */
 public class Peterson implements Lock {
 
-    private AtomicReferenceArray<Boolean> flag = new AtomicReferenceArray<>(2);
+    private AtomicBoolean[] flag = new AtomicBoolean[2];
 
     private volatile int victim;
 
     public Peterson() {
-        flag.set(0, false);
-        flag.set(1, false);
+        flag[0] = new AtomicBoolean(false);
+        flag[1] = new AtomicBoolean(false);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class Peterson implements Lock {
         int j = 1 - i;
 
         // 置flag为true表明试图进入临界区
-        flag.set(i, true);
+        flag[i].set(true);
         // 礼让另一个线程，自己作为牺牲者
         victim = i;
 
@@ -36,13 +36,13 @@ public class Peterson implements Lock {
          * 可以顺利进入临界区而不会发生死锁。（规避了LockOne的缺陷）。
          * 而在无竞争的情况下，即便自己是牺牲者线程，也可以判断到另一个线程flag为false，而不会陷入等待（规避了LockOne的缺陷）。
          */
-        while (flag.get(j) && victim == i) {
+        while (flag[j].get() && victim == i) {
         }
     }
 
     @Override
     public void unlock() {
         int i = ThreadID.get();
-        flag.set(i, false);
+        flag[i].set(false);
     }
 }
