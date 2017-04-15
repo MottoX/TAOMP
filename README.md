@@ -12,3 +12,6 @@ The Art Of Multiprocessor Programming (TAOMP)是由Maurice Herlihy以及Nir Shav
   *  [LockOne算法](src/main/java/com/github/mottox/taomp/concurrent/LockOne.java)
   *  [LockTwo算法](src/main/java/com/github/mottox/taomp/concurrent/LockTwo.java)
   *  [Peterson算法](src/main/java/com/github/mottox/taomp/concurrent/Peterson.java)
+
+* 第七章
+  *  [ALock算法](src/main/java/com/github/mottox/taomp/concurrent/ALock.java)
