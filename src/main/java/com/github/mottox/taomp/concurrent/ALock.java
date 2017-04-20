@@ -1,6 +1,5 @@
 package com.github.mottox.taomp.concurrent;
 
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.github.mottox.taomp.locks.Lock;
@@ -16,8 +15,11 @@ public class ALock implements Lock {
 
     private AtomicInteger tail;
 
-    // 原书这里用的是volatile boolean[]
-    private AtomicBoolean[] flag;
+    /*
+     * 书这里用的是volatile boolean[],虽然有说法volatile对于数组来说只是数组引用具有volatile含义的可见性，
+     * 但经过实践，volatile在这里修饰数组引用，确实可以保证flag数组中元素的可见性，而去掉之后则会有问题。
+     */
+    private volatile boolean[] flag;
 
     private int size;
 
@@ -31,10 +33,10 @@ public class ALock implements Lock {
     public ALock(int capacity) {
         size = capacity;
         tail = new AtomicInteger(0);
-        flag = new AtomicBoolean[capacity];
+        flag = new boolean[capacity];
         // 初始激活第一个slot
         for (int i = 0; i < capacity; i++) {
-            flag[i] = new AtomicBoolean(i == 0);
+            flag[i] = i == 0;
         }
     }
 
@@ -44,14 +46,14 @@ public class ALock implements Lock {
         int slot = tail.getAndIncrement() % size;
         // 保存到ThreadLocal中
         mySlotIndex.set(slot);
-        while (!flag[slot].get()) {
+        while (!flag[slot]) {
         }
     }
 
     @Override
     public void unlock() {
         int slot = mySlotIndex.get();
-        flag[slot].set(false);
-        flag[(slot + 1) % size].set(true);
+        flag[slot] = false;
+        flag[(slot + 1) % size] = true;
     }
 }

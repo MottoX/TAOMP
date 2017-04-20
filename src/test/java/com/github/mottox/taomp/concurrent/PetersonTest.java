@@ -6,13 +6,13 @@ import org.junit.Test;
 import com.github.mottox.taomp.common.LockCounter;
 
 /**
- * Peterson锁测试类。
+ * {@link Peterson}测试类。
  *
  * @author Robin Wang
  */
 public class PetersonTest {
 
-    @Test(timeout = 1000)
+    @Test(timeout = 500)
     public void testPeterson() throws Exception {
         LockCounter counter = new LockCounter(new Peterson());
         Runnable runnable = () -> {
