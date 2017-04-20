@@ -1,9 +1,8 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.github.mottox.taomp.common.Backoff;
-import com.github.mottox.taomp.locks.Lock;
 
 /**
  * 使用了{@link com.github.mottox.taomp.common.Backoff}的锁。

@@ -1,9 +1,6 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import java.util.concurrent.atomic.AtomicReference;
-
-import com.github.mottox.taomp.common.ThreadID;
-import com.github.mottox.taomp.locks.Lock;
 
 /**
  * CLH队列锁。
@@ -39,7 +36,6 @@ public class CLHLock implements Lock {
 
     @Override
     public void lock() {
-        ThreadID.get();
         QNode qNode = myNode.get();
         qNode.locked = true;
         // 将tail节点置为thread-local中的节点

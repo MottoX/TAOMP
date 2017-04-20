@@ -1,4 +1,4 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 import org.junit.Assert;
 
 import com.github.mottox.taomp.common.LockCounter;
-import com.github.mottox.taomp.locks.Lock;
+import com.github.mottox.taomp.concurrent.locks.Lock;
 
 /**
  * {@link Lock}测试辅助工具类。

@@ -1,9 +1,9 @@
 package com.github.mottox.taomp.common;
 
-import com.github.mottox.taomp.locks.Lock;
+import com.github.mottox.taomp.concurrent.locks.Lock;
 
 /**
- * 基于{@link com.github.mottox.taomp.locks.Lock}实现互斥的计数器。
+ * 基于{@link com.github.mottox.taomp.concurrent.locks.Lock}实现互斥的计数器。
  *
  * @author Robin Wang
  */

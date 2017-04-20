@@ -1,4 +1,4 @@
-package com.github.mottox.taomp.locks;
+package com.github.mottox.taomp.concurrent.locks;
 
 /**
  * TAOMP中简化版的{@link java.util.concurrent.locks.Lock}。

@@ -1,8 +1,7 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.github.mottox.taomp.locks.Lock;
 
 /**
  * 基于数组的简单队列锁，由Tom Anderson发明。

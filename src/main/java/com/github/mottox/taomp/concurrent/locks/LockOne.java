@@ -1,9 +1,8 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.github.mottox.taomp.common.ThreadID;
-import com.github.mottox.taomp.locks.Lock;
 
 /**
  * LockOne算法。

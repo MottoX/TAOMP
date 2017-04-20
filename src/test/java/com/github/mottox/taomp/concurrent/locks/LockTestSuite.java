@@ -1,4 +1,4 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

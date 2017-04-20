@@ -1,9 +1,10 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import com.github.mottox.taomp.common.LockCounter;
+import com.github.mottox.taomp.concurrent.locks.Peterson;
 
 /**
  * {@link Peterson}测试类。

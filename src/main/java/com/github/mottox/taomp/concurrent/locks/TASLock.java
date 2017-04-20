@@ -1,8 +1,8 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.github.mottox.taomp.locks.Lock;
+import com.github.mottox.taomp.concurrent.locks.Lock;
 
 /**
  * 一种基于testAndSet()指令的锁算法。

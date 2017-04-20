@@ -1,8 +1,6 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import java.util.concurrent.atomic.AtomicReference;
-
-import com.github.mottox.taomp.locks.Lock;
 
 /**
  * MCS队列锁。
