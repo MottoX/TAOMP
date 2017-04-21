@@ -10,7 +10,7 @@ import org.junit.Test;
 public class TASLockTest {
 
     @Test
-    public void testTASLock() throws Exception {
-        LockTestHelper.testFunctionality(new TASLock());
+    public void testLockAndUnlock() throws Exception {
+        LockTestHelper.testLockAndUnlock(new TASLock());
     }
 }

@@ -10,7 +10,7 @@ import org.junit.Test;
 public class BackoffLockTest {
 
     @Test(timeout = 500)
-    public void testBackoffLock() throws Exception {
-        LockTestHelper.testFunctionality(new BackoffLock());
+    public void testLockAndUnlock() throws Exception {
+        LockTestHelper.testLockAndUnlock(new BackoffLock());
     }
 }

@@ -10,7 +10,7 @@ import org.junit.Test;
 public class TTASLockTest {
 
     @Test(timeout = 500)
-    public void testTTASLock() throws Exception {
-        LockTestHelper.testFunctionality(new TTASLock());
+    public void testLockAndUnlock() throws Exception {
+        LockTestHelper.testLockAndUnlock(new TTASLock());
     }
 }

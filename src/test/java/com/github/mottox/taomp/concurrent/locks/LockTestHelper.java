@@ -9,7 +9,6 @@ import java.util.concurrent.Executors;
 import org.junit.Assert;
 
 import com.github.mottox.taomp.common.LockCounter;
-import com.github.mottox.taomp.concurrent.locks.Lock;
 
 /**
  * {@link Lock}测试辅助工具类。
@@ -18,15 +17,18 @@ import com.github.mottox.taomp.concurrent.locks.Lock;
  */
 public class LockTestHelper {
 
-    public static void testFunctionality(Lock lock) throws Exception {
-        testFunctionality(lock, 8);
+    public static void testLockAndUnlock(Lock lock) throws Exception {
+        // test single thread
+        testLockAndUnlock(lock, 1);
+        // test multiple threads
+        testLockAndUnlock(lock, 8);
     }
 
-    public static void testFunctionality(Lock lock, int thread) throws Exception {
-        testFunctionality(lock, thread, 100000);
+    public static void testLockAndUnlock(Lock lock, int thread) throws Exception {
+        testLockAndUnlock(lock, thread, 100000);
     }
 
-    public static void testFunctionality(Lock lock, int thread, int iteration) throws Exception {
+    public static void testLockAndUnlock(Lock lock, int thread, int iteration) throws Exception {
         LockCounter lockCounter = new LockCounter(lock);
         ExecutorService service = Executors.newFixedThreadPool(thread);
         List<Callable<Integer>> tasks = Collections.nCopies(thread, () -> {

@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ALockTest {
 
     @Test(timeout = 2500)
-    public void testALock() throws Exception {
-        LockTestHelper.testFunctionality(new ALock(8));
+    public void testLockAndUnlock() throws Exception {
+        LockTestHelper.testLockAndUnlock(new ALock(8));
     }
 }

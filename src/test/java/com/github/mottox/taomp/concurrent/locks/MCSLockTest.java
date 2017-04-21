@@ -11,6 +11,6 @@ public class MCSLockTest {
 
     @Test(timeout = 500)
     public void testMCSLock() throws Exception {
-        LockTestHelper.testFunctionality(new MCSLock());
+        LockTestHelper.testLockAndUnlock(new MCSLock());
     }
 }
