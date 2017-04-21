@@ -10,7 +10,7 @@ import org.junit.Test;
 public class MCSLockTest {
 
     @Test(timeout = 500)
-    public void testMCSLock() throws Exception {
+    public void testLockAndUnlock() throws Exception {
         LockTestHelper.testLockAndUnlock(new MCSLock());
     }
 }

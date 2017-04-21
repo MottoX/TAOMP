@@ -66,7 +66,7 @@ public class CLHLock implements Lock {
     }
 
     private static class QNode {
-        volatile boolean locked = false;
+        private volatile boolean locked = false;
     }
 }
 
