@@ -14,6 +14,7 @@ import org.junit.runners.Suite;
         CLHLockTest.class,
         MCSLockTest.class,
         TASLockTest.class,
-        TTASLockTest.class})
+        TTASLockTest.class,
+        TOLockTest.class})
 public class LockTestSuite {
 }
