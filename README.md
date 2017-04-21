@@ -9,15 +9,15 @@ The Art Of Multiprocessor Programming (TAOMP)是由Maurice Herlihy以及Nir Shav
 ## 目录
 
 * 第二章
-  *  [LockOne](src/main/java/com/github/mottox/taomp/concurrent/LockOne.java)
-  *  [LockTwo](src/main/java/com/github/mottox/taomp/concurrent/LockTwo.java)
-  *  [Peterson](src/main/java/com/github/mottox/taomp/concurrent/Peterson.java)
+  *  [LockOne](src/main/java/com/github/mottox/taomp/concurrent/locks/LockOne.java)
+  *  [LockTwo](src/main/java/com/github/mottox/taomp/concurrent/locks/LockTwo.java)
+  *  [Peterson](src/main/java/com/github/mottox/taomp/concurrent/locks/Peterson.java)
 
 * 第七章
-  *  [TASLock](src/main/java/com/github/mottox/taomp/concurrent/TASLock.java)
-  *  [TTASLock](src/main/java/com/github/mottox/taomp/concurrent/TTASLock.java)
-  *  [BackoffLock](src/main/java/com/github/mottox/taomp/concurrent/BackoffLock.java)
-  *  [ALock](src/main/java/com/github/mottox/taomp/concurrent/ALock.java)
-  *  [CLHLock](src/main/java/com/github/mottox/taomp/concurrent/CLHLock.java)
-  *  [MCSLock](src/main/java/com/github/mottox/taomp/concurrent/MCSLock.java)
-  *  [TOLock](src/main/java/com/github/mottox/taomp/concurrent/TOLock.java)
+  *  [TASLock](src/main/java/com/github/mottox/taomp/concurrent/locks/TASLock.java)
+  *  [TTASLock](src/main/java/com/github/mottox/taomp/concurrent/locks/TTASLock.java)
+  *  [BackoffLock](src/main/java/com/github/mottox/taomp/concurrent/locks/BackoffLock.java)
+  *  [ALock](src/main/java/com/github/mottox/taomp/concurrent/locks/ALock.java)
+  *  [CLHLock](src/main/java/com/github/mottox/taomp/concurrent/locks/CLHLock.java)
+  *  [MCSLock](src/main/java/com/github/mottox/taomp/concurrent/locks/MCSLock.java)
+  *  [TOLock](src/main/java/com/github/mottox/taomp/concurrent/locks/TOLock.java)
