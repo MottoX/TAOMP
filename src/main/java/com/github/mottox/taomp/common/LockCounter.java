@@ -1,17 +1,17 @@
 package com.github.mottox.taomp.common;
 
-import com.github.mottox.taomp.locks.Lock;
+import com.github.mottox.taomp.concurrent.locks.SimpleLock;
 
 /**
- * 基于{@link com.github.mottox.taomp.locks.Lock}实现互斥的计数器。
+ * 基于{@link SimpleLock}实现互斥的计数器。
  *
  * @author Robin Wang
  */
 public class LockCounter {
     private long value;
-    private Lock lock;
+    private SimpleLock lock;
 
-    public LockCounter(Lock lock) {
+    public LockCounter(SimpleLock lock) {
         this.lock = lock;
     }
 

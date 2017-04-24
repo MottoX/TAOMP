@@ -1,15 +1,14 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.github.mottox.taomp.common.ThreadID;
-import com.github.mottox.taomp.locks.Lock;
 
 /**
  * Peterson锁，一种{@link LockOne}和{@link LockTwo}结合起来的无饥饿锁算法。
  * 在TAOMP中将其称为最简洁与最完美的双线程互斥算法，以其发明者名字命名。
  */
-public class Peterson implements Lock {
+public class Peterson implements SimpleLock {
 
     private AtomicBoolean[] flag = new AtomicBoolean[2];
 

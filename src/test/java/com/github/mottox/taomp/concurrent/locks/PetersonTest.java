@@ -1,4 +1,4 @@
-package com.github.mottox.taomp.concurrent;
+package com.github.mottox.taomp.concurrent.locks;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -6,14 +6,14 @@ import org.junit.Test;
 import com.github.mottox.taomp.common.LockCounter;
 
 /**
- * Peterson锁测试类。
+ * {@link Peterson}测试类。
  *
  * @author Robin Wang
  */
 public class PetersonTest {
 
-    @Test(timeout = 1000)
-    public void testPeterson() throws Exception {
+    @Test(timeout = 500)
+    public void testLockAndUnlock() throws Exception {
         LockCounter counter = new LockCounter(new Peterson());
         Runnable runnable = () -> {
             for (int i = 0; i < 1000; i++) {
