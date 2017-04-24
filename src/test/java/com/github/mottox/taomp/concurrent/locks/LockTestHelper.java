@@ -11,24 +11,24 @@ import org.junit.Assert;
 import com.github.mottox.taomp.common.LockCounter;
 
 /**
- * {@link Lock}测试辅助工具类。
+ * {@link SimpleLock}测试辅助工具类。
  *
  * @author Robin Wang
  */
 public class LockTestHelper {
 
-    public static void testLockAndUnlock(Lock lock) throws Exception {
+    public static void testLockAndUnlock(SimpleLock lock) throws Exception {
         // test single thread
         testLockAndUnlock(lock, 1);
         // test multiple threads
         testLockAndUnlock(lock, 8);
     }
 
-    public static void testLockAndUnlock(Lock lock, int thread) throws Exception {
+    public static void testLockAndUnlock(SimpleLock lock, int thread) throws Exception {
         testLockAndUnlock(lock, thread, 100000);
     }
 
-    public static void testLockAndUnlock(Lock lock, int thread, int iteration) throws Exception {
+    public static void testLockAndUnlock(SimpleLock lock, int thread, int iteration) throws Exception {
         LockCounter lockCounter = new LockCounter(lock);
         ExecutorService service = Executors.newFixedThreadPool(thread);
         List<Callable<Integer>> tasks = Collections.nCopies(thread, () -> {

@@ -9,7 +9,7 @@ import com.github.mottox.taomp.common.ThreadID;
  * LockOne算法满足互斥性,至多只有一个线程可以进入临界区。
  * LockOne的缺陷在于当两个线程同时完成置flag为true操作，等待另一个线程的flag为false时，将发生死锁。
  */
-public class LockOne implements Lock {
+public class LockOne implements SimpleLock {
 
     private AtomicBoolean[] flag = new AtomicBoolean[2];
 

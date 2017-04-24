@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * 与{@link TASLock}效果等价的基于testAndGet()的锁算法。
  */
-public class TTASLock implements Lock {
+public class TTASLock implements SimpleLock {
 
     private AtomicBoolean state = new AtomicBoolean(false);
 

@@ -7,7 +7,7 @@ import com.github.mottox.taomp.common.Backoff;
 /**
  * 使用了{@link com.github.mottox.taomp.common.Backoff}的锁。
  */
-public class BackoffLock implements Lock {
+public class BackoffLock implements SimpleLock {
 
     private AtomicBoolean state = new AtomicBoolean(false);
 

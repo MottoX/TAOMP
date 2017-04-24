@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * MCS队列锁与{@link CLHLock}有异曲同工之处。
  * 优点在于释放锁的时候只会使后继线程cache无效，缺点则是释放锁的时候也可能会旋转等待。另外，读、写、CAS操作比{@link CLHLock}要多。
  */
-public class MCSLock implements Lock {
+public class MCSLock implements SimpleLock {
 
     private AtomicReference<QNode> tail;
 

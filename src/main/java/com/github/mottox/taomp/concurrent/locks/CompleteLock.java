@@ -2,14 +2,12 @@ package com.github.mottox.taomp.concurrent.locks;
 
 import java.util.concurrent.TimeUnit;
 
-import com.github.mottox.taomp.concurrent.locks.Lock;
-
 /**
- * 相比{@link Lock}，API更完整的锁接口。
+ * 相比{@link SimpleLock}，API更完整的锁接口。
  *
  * @author Robin Wang
  */
-public interface CompleteLock extends Lock {
+public interface CompleteLock extends SimpleLock {
 
     /**
      * @param time 最大等待时间

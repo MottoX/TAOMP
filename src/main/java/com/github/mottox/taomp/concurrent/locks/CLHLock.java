@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * <p>
  * CLH锁的优点在于：锁的释放只会使后继节点的cache无效。
  */
-public class CLHLock implements Lock {
+public class CLHLock implements SimpleLock {
 
     /**
      * 队列尾节点。

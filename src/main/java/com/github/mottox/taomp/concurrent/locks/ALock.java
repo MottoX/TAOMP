@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 每个线程在请求锁的时候，需要判断前一个线程是否释放锁来判断是否可以进入临界区。
  * 队列保证了锁的公平性。
  */
-public class ALock implements Lock {
+public class ALock implements SimpleLock {
 
     private ThreadLocal<Integer> mySlotIndex = ThreadLocal.withInitial(() -> 0);
 
