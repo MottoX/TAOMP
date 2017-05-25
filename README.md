@@ -21,3 +21,10 @@ The Art Of Multiprocessor Programming (TAOMP)是由Maurice Herlihy以及Nir Shav
   *  [CLHLock](src/main/java/com/github/mottox/taomp/concurrent/locks/CLHLock.java)
   *  [MCSLock](src/main/java/com/github/mottox/taomp/concurrent/locks/MCSLock.java)
   *  [TOLock](src/main/java/com/github/mottox/taomp/concurrent/locks/TOLock.java)
+
+* 第八章
+  * [LockedQueue](src/main/java/com/github/mottox/taomp/concurrent/LockedQueue.java)
+  * [SimpleReadWriteLock](src/main/java/com/github/mottox/taomp/concurrent/locks/SimpleReadWriteLock.java)
+  * [SimpleReentrantLock](src/main/java/com/github/mottox/taomp/concurrent/locks/SimpleReentrantLock.java)
+  * [FifoReadWriteLock](src/main/java/com/github/mottox/taomp/concurrent/locks/FifoReadWriteLock.java)
+  * [Semaphore](src/main/java/com/github/mottox/taomp/concurrent/Semaphore.java)
