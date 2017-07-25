@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 与{@link CoarseList}不同，FineList使用了一种细粒度的锁机制。FineList算法是无饥饿的。
  */
-public class FineList<T> {
+public class FineList<T> implements ConcurrentList<T> {
 
     private Node<T> head;
 
@@ -26,6 +26,7 @@ public class FineList<T> {
      *
      * @return 成功加入返回true，否则返回false
      */
+    @Override
     public boolean add(T item) {
         int key = item.hashCode();
         head.lock();
@@ -68,6 +69,7 @@ public class FineList<T> {
      *
      * @return 成功删除返回true，否则返回false
      */
+    @Override
     public boolean remove(T item) {
         Node<T> pred = null, curr = null;
         int key = item.hashCode();
@@ -85,6 +87,8 @@ public class FineList<T> {
                 }
                 if (curr.key == key) {
                     pred.next = curr.next;
+                    // 辅助GC
+                    curr.next = null;
                     return true;
                 }
                 return false;
@@ -108,6 +112,7 @@ public class FineList<T> {
 
         Node(T item) {
             this.item = item;
+            this.key = item.hashCode();
         }
 
         void lock() {

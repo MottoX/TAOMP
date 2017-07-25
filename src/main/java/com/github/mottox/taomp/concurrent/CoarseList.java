@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 如果竞争不激烈，则该类也是实现链表的一种很好的方式；
  * 如果竞争激烈，即便锁本身非常好，线程也会延迟等待其他线程。
  */
-public class CoarseList<T> {
+public class CoarseList<T> implements ConcurrentList<T> {
 
     private Node<T> head;
 
@@ -22,6 +22,7 @@ public class CoarseList<T> {
         head.next = new Node<>(Integer.MAX_VALUE);
     }
 
+    @Override
     public boolean add(T item) {
         Node<T> pred, curr;
         int key = item.hashCode();
@@ -46,6 +47,7 @@ public class CoarseList<T> {
         }
     }
 
+    @Override
     public boolean remove(T item) {
         Node<T> pred, curr;
         int key = item.hashCode();
@@ -59,6 +61,8 @@ public class CoarseList<T> {
             }
             if (key == curr.key) {
                 pred.next = curr.next;
+                // 辅助GC
+                curr.next = null;
                 return true;
             } else {
                 return false;
@@ -79,6 +83,7 @@ public class CoarseList<T> {
 
         Node(T item) {
             this.item = item;
+            this.key = item.hashCode();
         }
     }
 }

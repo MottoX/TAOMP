@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 因此遍历的时候可能会遍历到已经被删除的节点，但是节点在被删除的时候next不会变，所以仍然能够走回链表中，因此可以说该算法是无干扰的。
  * 但是该list不是无饥饿的，如果不断地添加删除节点，线程可能会被永久阻塞。但由于很少发生，所以该算法有比较好的实际效果。
  */
-public class OptimisticList<T> {
+public class OptimisticList<T> implements ConcurrentList<T> {
 
     private Node<T> head;
 
@@ -17,6 +17,7 @@ public class OptimisticList<T> {
         head.next = new Node<>(Integer.MAX_VALUE);
     }
 
+    @Override
     public boolean add(T item) {
         // 与FineList中的add不同的地方在于，OptimisticList在遍历的时候不需要获取节点的锁，而是在准备要加入节点的时候获取交叉耦合锁。
         int key = item.hashCode();
@@ -53,6 +54,7 @@ public class OptimisticList<T> {
         }
     }
 
+    @Override
     public boolean remove(T item) {
         int key = item.hashCode();
         while (true) {
@@ -69,6 +71,8 @@ public class OptimisticList<T> {
                 if (validate(pred, curr)) {
                     if (curr.key == key) {
                         pred.next = curr.next;
+                        // 辅助GC
+                        curr.next = null;
                         return true;
                     } else {
                         return false;
@@ -142,6 +146,7 @@ public class OptimisticList<T> {
 
         Node(T item) {
             this.item = item;
+            this.key = item.hashCode();
         }
 
         void lock() {
