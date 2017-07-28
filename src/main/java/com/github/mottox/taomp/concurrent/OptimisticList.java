@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class OptimisticList<T> implements ConcurrentList<T> {
 
-    private Node<T> head;
+    private final Node<T> head;
 
     public OptimisticList() {
         head = new Node<>(Integer.MIN_VALUE);
@@ -71,8 +71,6 @@ public class OptimisticList<T> implements ConcurrentList<T> {
                 if (validate(pred, curr)) {
                     if (curr.key == key) {
                         pred.next = curr.next;
-                        // 辅助GC
-                        curr.next = null;
                         return true;
                     } else {
                         return false;
