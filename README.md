@@ -9,6 +9,7 @@ The Art Of Multiprocessor Programming (TAOMP)是由Maurice Herlihy以及Nir Shav
 为了更好地通过运行这些代码学习，需要针对Java语言特性作一些修改以得到正确的结果。
 本仓库代码是我在学习过程中基于书中的代码所写的Java程序示例，大体基于原书的代码逻辑与风格，并针对Java的特性稍作了一些修改，并附有单元测试验证。
 
+![TAOMP](TAOMP.jpeg)
 ## 目录
 * **第二章 （互斥）**
 
