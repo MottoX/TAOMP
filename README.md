@@ -1,4 +1,6 @@
 # TAOMP
+[![Build Status](https://travis-ci.org/MottoX/TAOMP.svg?branch=master)](https://travis-ci.org/MottoX/TAOMP)
+
 The Art Of Multiprocessor Programming (TAOMP)是由Maurice Herlihy以及Nir Shavit所著的一本关于多线程编程的经典书籍。
 
 《多处理器编程的艺术》讲述了并发编程设计的思想及理论。讨论了经典的互斥问题，共享存储器的性质以及一些并发数据结构的原理与实践。
