@@ -12,11 +12,12 @@ import com.github.mottox.taomp.common.LockCounter;
  */
 public class PetersonTest {
 
-    @Test(timeout = 500)
+    @Test(timeout = 10000)
     public void testLockAndUnlock() throws Exception {
         LockCounter counter = new LockCounter(new Peterson());
+        int num = 1000000;
         Runnable runnable = () -> {
-            for (int i = 0; i < 1000; i++) {
+            for (int i = 0; i < num; i++) {
                 counter.getAndIncrement();
             }
         };
@@ -26,7 +27,7 @@ public class PetersonTest {
         b.start();
         a.join();
         b.join();
-        Assert.assertEquals(2000, counter.get());
+        Assert.assertEquals(num << 1, counter.get());
     }
 
 }

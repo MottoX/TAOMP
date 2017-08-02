@@ -19,9 +19,10 @@ public class ConcurrentListTestHelper {
     private static ExecutorService service = Executors.newFixedThreadPool(4);
 
     public static void testAdd(ConcurrentList<String> list) throws Exception {
+        int num = 10000;
         List<Future<Integer>> futures = service.invokeAll(Collections.nCopies(8, (Callable<Integer>) () -> {
             int result = 0;
-            for (int i = 0; i < 1000; i++) {
+            for (int i = 0; i < num; i++) {
                 boolean succ = list.add("add " + i);
                 result += succ ? 1 : 0;
             }
@@ -32,17 +33,18 @@ public class ConcurrentListTestHelper {
         for (Future<Integer> future : futures) {
             sum += future.get();
         }
-        Assert.assertEquals(1000, sum);
+        Assert.assertEquals(num, sum);
     }
 
     public static void testRemove(ConcurrentList<String> list) throws Exception {
-        for (int i = 0; i < 1000; i++) {
+        int num = 10000;
+        for (int i = 0; i < num; i++) {
             list.add("add " + i);
         }
 
         List<Future<Integer>> futures = service.invokeAll(Collections.nCopies(8, (Callable<Integer>) () -> {
             int result = 0;
-            for (int i = 0; i < 1000; i++) {
+            for (int i = 0; i < num; i++) {
                 boolean succ = list.remove("add " + i);
                 result += succ ? 1 : 0;
             }
@@ -54,7 +56,7 @@ public class ConcurrentListTestHelper {
             sum += future.get();
         }
 
-        Assert.assertEquals(1000, sum);
+        Assert.assertEquals(num, sum);
     }
 
 }

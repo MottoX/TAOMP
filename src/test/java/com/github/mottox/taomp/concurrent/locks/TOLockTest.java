@@ -12,12 +12,12 @@ import org.junit.Test;
  */
 public class TOLockTest {
 
-    @Test(timeout = 2000)
+    @Test(timeout = 10000)
     public void testLockAndUnlock() throws Exception {
         LockTestHelper.testLockAndUnlock(new TOLock());
     }
 
-    @Test(timeout = 1200)
+    @Test(timeout = 10000)
     public void testTryLockSuccess() throws Exception {
         TOLock lock = new TOLock();
 
@@ -34,7 +34,7 @@ public class TOLockTest {
         tryLockThread.join();
     }
 
-    @Test(timeout = 1200)
+    @Test(timeout = 10000)
     public void testTryLockFail() throws Exception {
         TOLock lock = new TOLock();
         Thread holdThread = new Thread(lock::lock, "the thread  that holds the lock");

@@ -21,11 +21,11 @@ public class LockTestHelper {
         // test single thread
         testLockAndUnlock(lock, 1);
         // test multiple threads
-        testLockAndUnlock(lock, 8);
+        testLockAndUnlock(lock, 4);
     }
 
     public static void testLockAndUnlock(SimpleLock lock, int thread) throws Exception {
-        testLockAndUnlock(lock, thread, 100000);
+        testLockAndUnlock(lock, thread, 500000);
     }
 
     public static void testLockAndUnlock(SimpleLock lock, int thread, int iteration) throws Exception {

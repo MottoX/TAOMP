@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class BackoffLockTest {
 
-    @Test(timeout = 500)
+    @Test(timeout = 10000)
     public void testLockAndUnlock() throws Exception {
         LockTestHelper.testLockAndUnlock(new BackoffLock());
     }
